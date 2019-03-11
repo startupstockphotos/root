@@ -1,0 +1,27 @@
+.grid {
+  overflow: hidden;
+  /* padding: 0 1.5em; */
+
+  /* @media (--600) { */
+  /*   padding: 0 2.5em; */
+  /* } */
+}
+.grid__row {
+  /* margin-left: -1em; */
+  /* margin-right: -1em; */
+}
+.grid__photo {
+  /* padding: 0 1em 2em; */
+  width: 50%;
+
+  @media (--800) {
+    width: 33.333333%;
+  }
+  @media (--1400) {
+    width: 25%;
+  }
+
+  img {
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,51 @@
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.load-more {
+  height: 20vh;
+
+  button {
+    transition: background var(--200) var(--ease), border var(--200) var(--ease), color var(--200) var(--ease), transform var(--800) var(--cubic), width var(--400) var(--cubic);
+    transform: translateY(14vh);
+    box-shadow: 5px 8px 30px 0 rgba(0, 0, 0, 0.1);
+
+    svg, span {
+      pointer-events: none;
+      transition: opacity var(--200) var(--ease);
+    }
+
+    svg {
+      opacity: 0;
+    }
+  }
+
+  &.is-active {
+    button {
+      transform: translateY(0);
+    }
+  }
+
+  &.is-loading {
+    button {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: white;
+
+      height: 50.4px;
+      width: 50.4px;
+      padding: 0;
+
+      span {
+        opacity: 0;
+      }
+
+      svg {
+        opacity: 1;
+        animation: spin 900ms linear infinite;
+      }
+    }
+  }
+}

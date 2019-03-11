@@ -1,0 +1,141 @@
+.header-spacer {
+  height: 85px;
+}
+.header {
+  height: 85px;
+  border-bottom: 1px solid var(--gray);
+  background: white;
+
+  &.is-photo-route {
+    .header__back {
+      display: block;
+    }
+    .header__divider {
+      display: none;
+    }
+    .header__search {
+      display: none;
+    }
+  }
+}
+.header__inner {
+}
+.header__logo {
+  color: var(--gray);
+  height: 85px;
+  transition: color var(--fast) var(--ease);
+
+  /* .outer */
+  padding-left: 1.5em;
+  @media (--600) {
+    padding-left: 2.5em;
+  }
+
+  svg {
+    width: 45px;
+    height: auto;
+  }
+
+  &:hover {
+    color: var(--black);
+  }
+}
+.header__divider {
+  top: -1px;
+}
+.header__search {
+  border: 0;
+}
+.header__search input[type='search'] {
+  height: 85px;
+  padding: 1.1em 0 1.2em;
+  border: 0;
+
+  &:required {
+    box-shadow: none;
+  }
+  &:invalid ~ button {
+    display: none;
+  }
+  &::placeholder {
+    color: var(--gray);
+  }
+  &:focus {
+    & ~ button {
+      color: var(--black);
+    }
+  }
+}
+.header__search input[type='submit'] {
+  display: none;
+}
+.header__search button {
+  width: 85px;
+  height: 85px;
+  padding: 0;
+  background: transparent;
+  color: var(--gray);
+  transition: color var(--fast) var(--ease);
+
+  &:hover {
+    color: var(--black);
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+  }
+}
+
+.header__back {
+  display: none;
+  margin-left: 2em;
+}
+
+.header__menu-toggle {
+  height: 85px;
+  min-width: 85px;
+  padding: 0 1.5em;
+  background: transparent;
+  color: var(--black);
+  transition: transform var(--fast) var(--ease);
+
+  @media (--600) {
+    padding: 0 2.5em;
+  }
+
+  span,
+  span::before,
+  span::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    margin: auto;
+    height: 7px;
+    width: 7px;
+    border-radius: 100px;
+    background: currentColor;
+    transition: transform var(--fast) var(--ease);
+  }
+  span::before {
+    transform: translateX(-15px);
+  }
+  span::after {
+    transform: translateX(15px);
+  }
+
+  &:hover {
+    transform: rotate(90deg);
+
+    span::before,
+    span::after {
+      transform: translateX(0) scale(3);
+    }
+  }
+}
+
+.header__donate {
+  margin-right: 1em;
+}

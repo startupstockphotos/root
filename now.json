@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "name": "site",
+  "alias": [
+    "ssp-site"
+  ],
+  "static": {
+    "directoryListing": false
+  },
+  "rewrites": [
+    {
+      "source": "/desk",
+      "destination": "index.html"
+    }
+  ]
+}
