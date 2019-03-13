@@ -13,7 +13,7 @@ function stringify (obj) {
 }
 
 function responseHandler (response) {
-  response.items.map(item => photoCache.set(item.id, item))
+  response.photos.map(photo => photoCache.set(photo.id, photo))
   return response
 }
 
@@ -22,6 +22,12 @@ export default {
    * { query, limit, offset } = args
    */
   photos (args = {}) {
+    args = Object.assign({
+      query: '',
+      limit: 24,
+      offset: 0
+    }, args)
+
     const q = stringify(args)
 
     return fetch(apiUrl + (q ? '?' + q : ''))

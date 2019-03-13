@@ -153,11 +153,13 @@ p, .p{
   max-width:1400px;
   margin-left:auto;
   margin-right:auto;
-}button.button{
+}a[role='button'].button,
+button.button{
   padding:0.3em 1.4em 0.4em 1.2em;
   font-size:14px;
   font-size:0.875rem;
   font-family:inherit;
+  text-decoration:none;
   color:white;
   border:1px solid #00B1FF;
   border-radius:100px;
@@ -170,26 +172,26 @@ p, .p{
           transition-duration:200ms;
   -webkit-transition-timing-function:ease-in-out;
           transition-timing-function:ease-in-out;
-}button.button:not(.button--outline):hover{
+}a[role='button'].button:not(.button--outline):hover, button.button:not(.button--outline):hover{
       background:#213841;
       border-color:#213841;
       color:white;
-    }button.button.button--outline{
+    }a[role='button'].button.button--outline, button.button.button--outline{
     color:#00B1FF;
     background:transparent;
-  }button.button.button--outline:hover{
+  }a[role='button'].button.button--outline:hover, button.button.button--outline:hover{
       background:#213841;
       border-color:#213841;
       color:white;
-    }button.button.button--large{
+    }a[role='button'].button.button--large, button.button.button--large{
     padding:1em 2.4em 1.1em 2.2em;
     max-width:240px;
     width:100%;
-  }button.button.button--white{
+  }a[role='button'].button.button--white, button.button.button--white{
     background:white;
     border-color:white;
     color:#00B1FF;
-  }button.button.button--white:hover{
+  }a[role='button'].button.button--white:hover, button.button.button--white:hover{
       background:#00B1FF;
       border-color:#00B1FF;
       color:white;

@@ -9,7 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "flexsearch": "^0.6.21",
-    "hypr": "^1.1.3",
+    "hypr": "^1.2.0",
     "isomorphic-fetch": "^2.2.1",
     "isomorphic-unfetch": "^3.0.0",
     "micro": "^9.3.3",
@@ -19,7 +19,7 @@
     "router": "^1.3.3",
     "svbstrate": "^4.1.0",
     "tickl": "^1.0.0",
-    "vsbl": "^1.2.1",
+    "vsbl": "^1.3.3",
     "w2t": "0.0.2"
   }
 }

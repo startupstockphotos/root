@@ -3,15 +3,23 @@ import api from '@/util/api.js'
 import App from '@/components/App.js'
 import Grid from '@/components/Grid.js'
 
-export const pathname = '/'
+export const pathname = '/:query?'
 
-export function config () {
-  return load()
-}
+// add initialstate to biti
+// export function config () {
+//   return load().then(res => {
+//     return {
+//       ...res,
+//       pathname: '/' // can't have query in static
+//     }
+//   })
+// }
 
 export function load (state, req) {
   return Promise.all([
-    api.photos()
+    api.photos({
+      query: state.router.params.query || ''
+    })
   ]).then(([ apiResponse ]) => {
     return {
       meta: {
@@ -19,9 +27,7 @@ export function load (state, req) {
         description: ''
       },
       props: {
-        query: apiResponse.query,
-        next: apiResponse.next,
-        photos: apiResponse.items
+        ...apiResponse
       }
     }
   })
