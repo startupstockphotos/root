@@ -1,5 +1,5 @@
 import React from 'react'
-import { withState } from 'hypr'
+import { withState } from 'rola'
 import api from '@/util/api.js'
 import GridPhoto from '@/components/GridPhoto.js'
 import LoadMore from '@/components/LoadMore.js'

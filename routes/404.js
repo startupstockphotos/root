@@ -10,12 +10,12 @@ export function load () {
     meta: {
       title: '404 Not Found'
     },
-    props: {
+    state: {
     }
   }
 }
 
-export function view (props) {
+export function view ({ state }) {
   return (
     <App>
       <h1>404</h1>

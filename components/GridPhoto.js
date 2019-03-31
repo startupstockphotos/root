@@ -1,10 +1,11 @@
 import React from 'react'
-import { Link } from 'hypr'
+import { Link } from 'rola'
+import Image from '@/components/Image.js'
 
 export default function GridPhoto (props) {
   return (
     <li id={props.id} className='grid__photo rel'>
-      <img className='x y fill z0' src={props.images.placeholder} data-src={props.images.display} />
+      <Image className='grid__photo__image rel' images={props.images} alt={props.description} />
       <Link href={`/photos/${props.id}`} className='abs fill z1' />
     </li>
   )

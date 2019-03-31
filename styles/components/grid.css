@@ -17,11 +17,12 @@
   @media (--800) {
     width: 33.333333%;
   }
-  @media (--1400) {
-    width: 25%;
-  }
 
-  img {
-    object-fit: cover;
+  .image {
+    padding-top: 66%;
+
+    img {
+      position: absolute;
+    }
   }
 }

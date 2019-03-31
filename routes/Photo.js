@@ -1,7 +1,8 @@
 import React from 'react'
-import { withState } from 'hypr'
+import { withState } from 'rola'
 import api from '@/util/api.js'
 import App from '@/components/App.js'
+import Image from '@/components/Image.js'
 
 export const pathname = '/photos/:id'
 
@@ -10,11 +11,11 @@ export function load (state, req) {
     api.photo(state.router.params.id)
   ]).then(([ photo ]) => {
     return {
-      meta: {
-        title: photo.id
-      },
-      props: {
-        [photo.id]: photo
+      state: {
+        photo,
+        meta: {
+          title: '#' + photo.id + ' | Startup Stock Photos'
+        }
       }
     }
   })
@@ -22,19 +23,19 @@ export function load (state, req) {
 
 export const view = withState(state => {
   return {
-    photo: state[state.router.params.id]
+    photo: state.photo
   }
 })(
-  function view (props) {
-    const { placeholder, display, raw } = props.photo.images
-    const { width, height, size } = props.photo.stats
+  function view ({ state, photo }) {
+    const { placeholder, display, raw } = photo.images
+    const { width, height, size } = photo.stats
 
     return (
       <App>
         <section className='photo'>
           <header>
             <div className='outer'>
-              <h1>#{props.photo.id}</h1>
+              <h1>#{photo.id}</h1>
             </div>
           </header>
 
@@ -55,8 +56,8 @@ export const view = withState(state => {
             </div>
           </div>
 
-          <div className='photo__img'>
-            <img className='block x' src={placeholder} data-src={display} />
+          <div className='photo__img rel'>
+            <Image images={photo.images} alt={photo.description} />
           </div>
         </section>
       </App>

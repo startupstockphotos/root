@@ -1,5 +1,5 @@
 import React from 'react'
-import { withState } from 'hypr'
+import { withState } from 'rola'
 
 class Search extends React.Component {
   constructor (props) {

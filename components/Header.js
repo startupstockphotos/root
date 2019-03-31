@@ -1,6 +1,6 @@
 import React from 'react'
 import cx from 'nanoclass'
-import { Link, withState } from 'hypr'
+import { Link, withState } from 'rola'
 import Search from '@/components/Search.js'
 import { Logo } from '@/components/Icons.js'
 
@@ -45,6 +45,6 @@ function Header ({ query, isPhotoRoute }) {
 export default withState(state => {
   return {
     query: state.query,
-    isPhotoRoute: /^\/photos\/[0-9]+$/.test(state.router.location)
+    isPhotoRoute: false ///^\/photos\/[0-9]+$/.test(state.router.location)
   }
 })(Header)

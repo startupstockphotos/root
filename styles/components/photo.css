@@ -32,3 +32,12 @@
     }
   }
 }
+.photo__img {
+  .image {
+    padding-top: 66%;
+
+    img {
+      position: absolute;
+    }
+  }
+}

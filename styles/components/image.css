@@ -1,0 +1,11 @@
+.image {
+  img {
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+
+    &.is-loaded {
+      opacity: 1;
+    }
+  }
+}

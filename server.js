@@ -1,5 +1,5 @@
 import connect from 'connect'
-import { server } from 'hypr'
+import { server } from 'rola'
 
 import v1 from '@/api/v1.js'
 import routes from '@/routes.js'

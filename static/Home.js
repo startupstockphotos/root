@@ -1,14 +1,12 @@
 import React from 'react'
 import api from '@/util/api.js'
-import App from '@/components/App.js'
-import Grid from '@/components/Grid.js'
+import * as Home from '@/routes/Home.js'
 
-export const pathname = '/:query?'
+export const pathname = '/'
 
-export function load (state, req) {
+export function load () {
   return Promise.all([
     api.photos({
-      query: state.router.params.query || '',
       fetchStats: true
     })
   ]).then(([ apiResponse ]) => {
@@ -18,16 +16,10 @@ export function load (state, req) {
         meta: {
           title: 'Startup Stock Photos',
           description: ''
-        },
+        }
       }
     }
   })
 }
 
-export function view ({ state }) {
-  return (
-    <App>
-      <Grid />
-    </App>
-  )
-}
+export const view = Home.view
