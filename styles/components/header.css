@@ -45,6 +45,18 @@
 }
 .header__search {
   border: 0;
+
+  &:hover {
+    button {
+      opacity: 0.5;
+    }
+  }
+
+  &.is-empty {
+    button {
+      opacity: 0;
+    }
+  }
 }
 .header__search input[type='search'] {
   height: 85px;
@@ -55,7 +67,7 @@
     box-shadow: none;
   }
   &:invalid ~ button {
-    display: none;
+    opacity: 0;
   }
   &::placeholder {
     color: var(--gray);
@@ -73,13 +85,14 @@
   width: 85px;
   height: 85px;
   padding: 0 0 5px 0;
-  background: transparent;
-  color: var(--gray);
-  transition: color var(--fast) var(--ease);
   font-size: 28px;
+  background: transparent;
+  color: var(--black);
+  opacity: 0;
+  transition: opacity var(--fast) var(--ease);
 
   &:hover {
-    color: var(--black);
+    opacity: 1;
   }
 }
 

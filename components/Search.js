@@ -1,4 +1,5 @@
 import React from 'react'
+import cx from 'nanoclass'
 import { withState } from 'rola'
 
 class Search extends React.Component {
@@ -28,7 +29,7 @@ class Search extends React.Component {
     const { query, hydrate } = this.props
 
     return (
-      <form className='header__search rel s4 z1 x' onSubmit={e => {
+      <form className={cx(['header__search rel s5 z1 x', !query && 'is-empty'])} onSubmit={e => {
         e.preventDefault()
       }}>
         <input
