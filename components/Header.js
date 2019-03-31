@@ -28,16 +28,24 @@ function Header ({ query, isPhotoRoute }) {
             <Search />
           </div>
 
-          <div className='header__mid f aic'>
-            <div className='header__collections rel'>
-              <button className='rel'>
-                Collections
-                <img src='https://icon.now.sh/chevron/down' className='abs top bottom right mya' />
+          <div className='header__mid rel f aic'>
+            <div className='header__collections rel f aic'>
+              <button className='f aic rel'>
+                <span className='block track caps'>Browse</span>
+                <img src='https://icon.now.sh/chevron/down' className='block abs top bottom right' />
               </button>
 
-              <div className='header__collections__drop abs bottom right'>
+              <div className='header__collections__drop abs bottom right h6 f'>
                 <ul>
-                  <li><Link href='/collections/people'>People</Link></li>
+                  <li><Link href='/collections/people'>Offices <img src='https://icon.now.sh/chevron' /></Link></li>
+                  <li><Link href='/collections/people'>People <img src='https://icon.now.sh/chevron' /></Link></li>
+                  <li><Link href='/collections/people'>Mac <img src='https://icon.now.sh/chevron' /></Link></li>
+                  <li><Link href='/collections/people'>PC <img src='https://icon.now.sh/chevron' /></Link></li>
+                </ul>
+                <ul>
+                  <li><Link href='/collections/people'>Outdoors <img src='https://icon.now.sh/chevron' /></Link></li>
+                  <li><Link href='/collections/people'>Colorful <img src='https://icon.now.sh/chevron' /></Link></li>
+                  <li><Link href='/collections/people'>Coworking <img src='https://icon.now.sh/chevron' /></Link></li>
                 </ul>
               </div>
             </div>

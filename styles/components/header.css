@@ -89,15 +89,16 @@
 }
 
 .header__menu-toggle {
-  height: 85px;
-  min-width: 85px;
-  padding: 0 1.5em;
+  height: 45px;
+  min-width: 45px;
+  padding: 0;
+  margin-right: 1.5em;
   background: transparent;
   color: var(--black);
   transition: transform var(--fast) var(--ease);
 
   @media (--600) {
-    padding: 0 2.5em;
+    margin-right: 2.5em;
   }
 
   span,
@@ -131,23 +132,97 @@
   }
 }
 
+.header__mid {
+  padding-left: 1.5em;
+  @media (--600) {
+    padding-left: 2.5em;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    height: 85px;
+    margin: auto 0;
+    width: 1px;
+    background: var(--gray);
+  }
+}
+
 .header__collections {
-  margin-right: 1em;
+  margin-right: 1.5em;
+  height: 85px;
+
+  @media (--600) {
+    margin-right: 2em;
+  }
 
   button {
     background: white;
     font-size: 0.875rem;
     font-family: inherit;
-    padding: 0.3em 1.4em 0.4em 1.2em;
+    padding: 0.3em 1.2em 0.4em 0;
+    opacity: 0.5;
+    transition: opacity 200ms var(--ease);
+
+    &:hover {
+      opacity: 1;
+
+      & + .header__collections__drop {
+        visibility: visible;
+      }
+    }
 
     img {
-      width: 11px;
+      width: 10px;
+      top: 8px;
     }
   }
 }
 .header__collections__drop {
-  display: none;
+  visibility: hidden;
+  background: white;
+  padding: 1em 0.5em ;
+  border-radius: 6px;
+  min-width: 270px;
+  transform: translateY(100%) translateY(-1.5em);
+  box-shadow: 0 4px 12px rgba(33, 56, 65, 0.2);
+
+  &::hover {
+    visibility: visible;
+  }
+
+  a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    padding: 0.3em 1.8em 0.3em 0;
+
+    &:hover {
+      img {
+        opacity: 1;
+      }
+    }
+
+    img {
+      display: block;
+      position: absolute;
+      top: 12px; right: 0;
+      width: 8px;
+      opacity: 0.2;
+      transition: opacity 200ms var(--ease);
+    }
+  }
+
+  ul {
+    padding: 0 1.4em;
+  }
 }
 .header__donate {
-  margin-right: 1em;
+  margin-right: 1.5em;
+
+  @media (--600) {
+    margin-right: 2em;
+  }
 }

@@ -96,3 +96,6 @@ em, .i {
 .no-under {
   text-decoration: none;
 }
+.track {
+  letter-spacing: 2px;
+}
