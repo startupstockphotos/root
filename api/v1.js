@@ -3,24 +3,10 @@ import qs from 'qs'
 import flexsearch from 'flexsearch'
 import router from 'router'
 
-import database from '@/api/database.js'
+import photos from '@/api/database.js'
 import collections from '@/api/collections.js'
 
 const assets = 'https://ssp-static.now.sh'
-
-const photos = database
-  .map(({ id, tags, description }) => ({
-    id,
-    tags,
-    description,
-    stats: `${assets}/photos/processed/${id}/stats.json`,
-    images: {
-      placeholder: `${assets}/photos/processed/${id}/placeholder.jpg`,
-      display: `${assets}/photos/processed/${id}/display.jpg`,
-      raw: `${assets}/photos/raw/${id}.jpg`
-    }
-  }))
-  .reverse()
 
 const index = flexsearch.create({
   doc: {
