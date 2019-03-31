@@ -28,8 +28,23 @@ function Header ({ query, isPhotoRoute }) {
             <Search />
           </div>
 
-          <div className='header__right f aic'>
+          <div className='header__mid f aic'>
+            <div className='header__collections rel'>
+              <button className='rel'>
+                Collections
+                <img src='https://icon.now.sh/chevron/down' className='abs top bottom right mya' />
+              </button>
+
+              <div className='header__collections__drop abs bottom right'>
+                <ul>
+                  <li><Link href='/collections/people'>People</Link></li>
+                </ul>
+              </div>
+            </div>
             <button className='header__donate button'>Donate</button>
+          </div>
+
+          <div className='header__right f aic'>
             <button className='header__menu-toggle rel'>
               <span></span>
             </button>

@@ -33,6 +33,7 @@ class Grid extends React.Component {
 
       this.setState({ query, offset, limit })
       this.props.hydrate(res)()
+      window.history.replaceState({}, '', query || '/')
     })
   }
 
@@ -62,14 +63,10 @@ class Grid extends React.Component {
   }
 
   render () {
-    const { photos, next, collection } = this.props
+    const { photos, next } = this.props
 
     return (
       <section className='grid rel'>
-        {collection && (
-          <div>{collection.description}</div>
-        )}
-
         <div>
           <ul className='grid__row rel f fw'>
             {photos.map(photo => {
@@ -90,7 +87,6 @@ export default withState(state => {
     query: state.query,
     limit: state.limit,
     offset: state.offset,
-    photos: state.photos,
-    collection: state.collection
+    photos: state.photos
   }
 })(Grid)

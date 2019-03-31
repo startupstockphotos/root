@@ -5,16 +5,34 @@ class Search extends React.Component {
   constructor (props) {
     super(props)
 
-    this.state = {
+    this.input = React.createRef()
+    this.attachMacro = this.attachMacro.bind(this)
+  }
+
+  attachMacro (e) {
+    if (e.metaKey && e.keyCode === 83) {
+      e.preventDefault()
+      this.input.current.focus()
     }
+  }
+
+  componentDidMount () {
+    document.addEventListener('keydown', this.attachMacro)
+  }
+
+  componentWillUnmount () {
+    document.removeEventListener('keydown', this.attachMacro)
   }
 
   render () {
     const { query, hydrate } = this.props
 
     return (
-      <form className='header__search rel s4 z1 x'>
+      <form className='header__search rel s4 z1 x' onSubmit={e => {
+        e.preventDefault()
+      }}>
         <input
+          ref={this.input}
           name='search'
           type='search'
           className='block x'
@@ -24,11 +42,9 @@ class Search extends React.Component {
             hydrate({ query: e.target.value })()
           }} />
         <input type='submit' value='Search' />
-        <button type='button' className='abs top right bottom mya'>
-          <svg viewBox="0 0 16 16" className='abs fill ma'>
-            <use xlinkHref="#x"></use>
-          </svg>
-        </button>
+        <button type='button' className='abs top right bottom mya' onClick={e => {
+          hydrate({ query: '' })()
+        }}>&times;</button>
       </form>
     )
   }

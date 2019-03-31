@@ -72,19 +72,14 @@
 .header__search button {
   width: 85px;
   height: 85px;
-  padding: 0;
+  padding: 0 0 5px 0;
   background: transparent;
   color: var(--gray);
   transition: color var(--fast) var(--ease);
+  font-size: 28px;
 
   &:hover {
     color: var(--black);
-  }
-
-  svg {
-    width: 16px;
-    height: 16px;
-    display: block;
   }
 }
 
@@ -136,6 +131,23 @@
   }
 }
 
+.header__collections {
+  margin-right: 1em;
+
+  button {
+    background: white;
+    font-size: 0.875rem;
+    font-family: inherit;
+    padding: 0.3em 1.4em 0.4em 1.2em;
+
+    img {
+      width: 11px;
+    }
+  }
+}
+.header__collections__drop {
+  display: none;
+}
 .header__donate {
   margin-right: 1em;
 }

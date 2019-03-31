@@ -45,18 +45,10 @@ export default class Image extends React.Component {
 
   render () {
     const { visible, placeholderLoaded, displayLoaded } = this.state
-    const { images, alt } = this.props
+    const { images, alt, stats, color } = this.props
 
     return (
-      <div ref={this.img} className='image'>
-        <img
-          alt={alt}
-          src={images.placeholder}
-          className={cx(['block x y fill z0 is-loaded'])}
-          onLoad={e => {
-            this.setState({ placeholderLoaded: true })
-          }} />
-
+      <div ref={this.img} className='image' style={{ background: color }}>
         {visible && (
           <img
             alt={alt}

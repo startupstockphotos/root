@@ -4,7 +4,6 @@ import flexsearch from 'flexsearch'
 import router from 'router'
 
 import photos from '@/api/database.js'
-import collections from '@/api/collections.js'
 
 const assets = 'https://ssp-static.now.sh'
 
@@ -63,8 +62,7 @@ function search ({
     limit,
     offset,
     next,
-    photos: items,
-    collection: collections[query] || {}
+    photos: items
   }
 }
 
