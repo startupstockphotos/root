@@ -5,8 +5,7 @@ import * as Photo from '@/routes/Photo.js'
 export function load () {
   return Promise.all([
     api.photos({
-      limit: 200,
-      fetchStats: true
+      limit: 200
     })
   ]).then(([ apiResponse ]) => {
     return apiResponse.photos.map(photo => {

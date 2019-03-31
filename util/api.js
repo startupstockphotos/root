@@ -4,7 +4,6 @@ const assetsUrl = 'https://ssp-static.now.sh'
 const apiUrl = 'http://localhost:3000/api/v1/photos'
 
 const photoCache = new Map()
-const statsCache = new Map()
 
 function stringify (obj) {
   return Object.keys(obj).reduce((q, key) => {
@@ -19,7 +18,7 @@ function responseHandler (response) {
 
 export default {
   /**
-   * { query, limit, offset, fetchStats } = opts
+   * { query, limit, offset } = opts
    */
   photos (opts = {}) {
     const q = stringify({
@@ -31,23 +30,6 @@ export default {
     return fetch(apiUrl + (q ? '?' + q : ''))
       .then(r => r.json())
       .then(responseHandler)
-      .then(res => {
-        if (!opts.fetchStats) return res
-
-        return Promise.all(
-          res.photos.map(photo => this.stats(photo))
-        ).then(stats => {
-          return {
-            ...res,
-            photos: res.photos.map((photo, i) => {
-              return {
-                ...photo,
-                stats: stats[i]
-              }
-            })
-          }
-        })
-      })
       .catch(e => {
         console.error(`api.photos failed`)
         console.error(e)
@@ -55,33 +37,11 @@ export default {
   },
   photo (id) {
     const photo = photoCache.get(id)
-    const stats = statsCache.get(id)
 
-    console.log(stats)
-
+    // TODO add catch
     return Promise.resolve(
       photo || fetch(apiUrl + '/' + id).then(r => r.json())
-    ).then(photo => {
-      return this.stats(photo)
-        .then(stats => {
-          photoCache.set(id, photo)
-          statsCache.set(id, stats)
-
-          return {
-            ...photo,
-            stats
-          }
-        })
-    })
-  },
-  stats (photo) {
-    const cached = statsCache.get(photo.id)
-
-    return Promise.resolve(cached || fetch(photo.stats).then(r => r.json()))
-      .then(stats => {
-        statsCache.set(photo.id, stats)
-        return stats
-      })
+    )
   },
   load (url) {
     return fetch(url)

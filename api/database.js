@@ -1,4 +1,4 @@
-export default = [
+export default [
   {
     "id": "117",
     "description": "Person using their phone with brick wall in background.",

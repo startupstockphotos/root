@@ -51,7 +51,7 @@ if (toFetch.length) {
 function write (photos) {
   fs.writeFile(
     path.join(cwd, 'api/database.js'),
-    'export default = ' + JSON.stringify(
+    'export default ' + JSON.stringify(
       photos.sort((a, b) => {
         return b.id - a.id
       }),

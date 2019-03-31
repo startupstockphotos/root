@@ -6,9 +6,7 @@ export const pathname = '/'
 
 export function load () {
   return Promise.all([
-    api.photos({
-      fetchStats: true
-    })
+    api.photos()
   ]).then(([ apiResponse ]) => {
     return {
       state: {
