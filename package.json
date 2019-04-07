@@ -2,6 +2,7 @@
   "name": "ssp-site",
   "version": "0.0.1",
   "scripts": {
+    "debug": "node --inspect ./node_modules/.bin/rola watch",
     "start": "rola watch",
     "build": "rola build"
   },
@@ -9,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "@rola/preset-postcss": "^0.10.5",
+    "classnames": "^2.2.6",
     "flexsearch": "^0.6.22",
     "isomorphic-fetch": "^2.2.1",
     "isomorphic-unfetch": "^3.0.0",

@@ -181,15 +181,17 @@
 
     &:hover {
       opacity: 1;
-
-      & + .header__collections__drop {
-        visibility: visible;
-      }
     }
 
     img {
       width: 10px;
       top: 8px;
+    }
+  }
+
+  &.is-active {
+    .header__collections__drop {
+      visibility: visible;
     }
   }
 }
