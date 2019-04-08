@@ -36,7 +36,9 @@ export default class Image extends React.Component {
       () => this.setState({ visible: true })
     )
 
-    this.lazy.update()
+    requestAnimationFrame(() => {
+      this.lazy.update()
+    })
   }
 
   componentWillUnmount () {

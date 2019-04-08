@@ -56,10 +56,25 @@ class Grid extends React.Component {
     return false
   }
 
+  detectScrollPosition (props) {
+    console.log('pos', props.homeScrollPosition)
+    if (typeof window !== 'undefined' && props.homeScrollPosition) {
+      window.scrollTo(0, props.homeScrollPosition)
+      props.hydrate({ homeScrollPosition: 0 })
+    }
+  }
+
   componentWillReceiveProps (props) {
     const invalidated = this.isInvalidated(props)
 
     if (invalidated) this.debounce(props)
+
+    this.detectScrollPosition(props)
+  }
+
+  componentDidMount () {
+    // this.detectScrollPosition(this.props)
+    this.props.hydrate({ homeScrollPosition: 0 })
   }
 
   render () {
@@ -87,6 +102,7 @@ export default withState(state => {
     query: state.query,
     limit: state.limit,
     offset: state.offset,
-    photos: state.photos
+    photos: state.photos,
+    homeScrollPosition: state.homeScrollPosition
   }
 })(Grid)

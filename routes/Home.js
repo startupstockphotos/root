@@ -8,7 +8,8 @@ export const pathname = '/:query?'
 export function load (state, req) {
   return Promise.all([
     api.photos({
-      query: state.router.params.query || ''
+      query: state.router.params.query || '',
+      limit: 200
     })
   ]).then(([ apiResponse ]) => {
     return {

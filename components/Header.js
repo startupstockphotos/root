@@ -75,7 +75,7 @@ class CollectionsMenu extends React.Component {
   }
 }
 
-function Header ({ query, isPhotoRoute }) {
+function Header ({ query, isPhotoRoute, hydrate }) {
   return (
     <React.Fragment>
       <header className={cx(['header rel z10 fix top left right x',
@@ -83,7 +83,9 @@ function Header ({ query, isPhotoRoute }) {
       ])}>
         <div className='header__inner rel f aic jcb'>
           <div className='header__left rel f aic x'>
-            <Link href='/' className='header__logo block rel f aic'>
+            <Link href='/' className='header__logo block rel f aic' onClick={e => {
+              hydrate({ homeScrollPosition: 0 })
+            }}>
               <Logo />
             </Link>
 
