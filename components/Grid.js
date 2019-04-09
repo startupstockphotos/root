@@ -32,8 +32,9 @@ class Grid extends React.Component {
       const { query, offset, limit, photos } = res
 
       this.setState({ query, offset, limit })
-      this.props.hydrate(res)()
+      this.props.hydrate({ ...res, homeScrollPosition: 0 })()
       window.history.replaceState({}, '', query || '/')
+      window.scrollTo(0, 0)
     })
   }
 
@@ -56,24 +57,13 @@ class Grid extends React.Component {
     return false
   }
 
-  detectScrollPosition (props) {
-    console.log('pos', props.homeScrollPosition)
-    if (typeof window !== 'undefined' && props.homeScrollPosition) {
-      window.scrollTo(0, props.homeScrollPosition)
-      props.hydrate({ homeScrollPosition: 0 })
-    }
-  }
-
   componentWillReceiveProps (props) {
     const invalidated = this.isInvalidated(props)
 
     if (invalidated) this.debounce(props)
-
-    this.detectScrollPosition(props)
   }
 
   componentDidMount () {
-    // this.detectScrollPosition(this.props)
     this.props.hydrate({ homeScrollPosition: 0 })
   }
 

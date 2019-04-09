@@ -1,16 +1,19 @@
 {
-  "version": 1,
-  "name": "site",
+  "name": "ssp-site",
+  "version": 2,
   "alias": [
-    "ssp-site"
+    "ssp-site.now.sh"
   ],
-  "static": {
-    "directoryListing": false
-  },
-  "rewrites": [
-    {
-      "source": "/desk",
-      "destination": "index.html"
-    }
+  "scope": "startupphotos",
+  "routes": [
+    { "src": "/photos/(.*)", "dest": "/assets/photos/$1" },
+    { "src": "/about", "dest": "/assets/about" },
+    { "src": "/(.*(?:css|js|jpg|png))", "dest": "/assets/$1" },
+    { "src": "/", "dest": "/assets" },
+    { "src": "/.*", "dest": "/server.js" }
+  ],
+  "builds": [
+    { "src": "assets/*", "use": "@now/static" },
+    { "src": "server.js", "use": "@now/node" }
   ]
 }

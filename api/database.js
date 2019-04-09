@@ -1825,32 +1825,6 @@ export default [
     }
   },
   {
-    "id": "34",
-    "description": "Person at a table with a notebook and MacBook.",
-    "tags": [
-      "office",
-      "coworking",
-      "macbook",
-      "computer",
-      "people",
-      "things",
-      "notebook",
-      "orange"
-    ],
-    "stats": {
-      "color": "#b1682b",
-      "size": 0.9650869140625,
-      "height": 3744,
-      "width": 5616,
-      "type": "jpg"
-    },
-    "images": {
-      "placeholder": "https://ssp-static.now.sh/photos/processed/34/placeholder.jpg",
-      "display": "https://ssp-static.now.sh/photos/processed/34/display.jpg",
-      "raw": "https://ssp-static.now.sh/photos/raw/34.jpg"
-    }
-  },
-  {
     "id": "33",
     "description": "Person at a table with a notebook and MacBook.",
     "tags": [
